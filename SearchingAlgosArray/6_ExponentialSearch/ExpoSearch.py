@@ -15,6 +15,8 @@ def binary_search(arr, low, high, target):
 
 def exponential_search(arr, target):
     n = len(arr)
+    print(f"Array: {arr}")
+    print(f"Array length: n={n}, target={target}")
 
     if n == 0:
         return -1
@@ -27,12 +29,15 @@ def exponential_search(arr, target):
 
     while index < n and arr[index] < target:
         print(f"Check index {index}: value = {arr[index]}")
+        print(f"Double index: {index} -> {index * 2}")
         index *= 2
 
     low = index // 2
     high = min(index, n - 1)
 
-    print(f"Target range found: low={low}, high={high}")
+    print(f"Range calculation: low = index // 2 = {index} // 2 = {low}")
+    print(f"Range calculation: high = min(index, n - 1) = min({index}, {n - 1}) = {high}")
+    print(f"Target range found: arr[{low}:{high + 1}] = {arr[low:high + 1]}")
     return binary_search(arr, low, high, target)
 
 
